@@ -1,17 +1,26 @@
-const { prefix } = require('../../config.json');
+const { SlashCommandBuilder } = require("discord.js")
 
 module.exports = {
-    name: 'roll',
-    description: `\`${prefix}roll [number]\` - Roll a random number between 0 and the given number (default is 100).`,
-    execute(message, args) {
+    data: new SlashCommandBuilder()
+        .setName("roll")
+        .setDescription(`\`roll [number]\` - Roll a random number between 0 and the given number (default is 100).`)
+        .addIntegerOption(option =>
+            option
+                .setName("max")
+                .setDescription("The maximum number to roll")
+        ), 
+    
+    async execute(interaction) {
         let maxValue = 100;
+        let max_number = interaction.options.getInteger("Max number");
 
-        if(args.length > 0) {
-            if(!isNaN(args[0])) {
-                maxValue = parseInt(args[0]);
-            }
+        if( max_number != undefined && max_number > 0) {
+            maxValue = max_number;
         }
+
+        console.log(maxValue);
+
         let roll = Math.floor(Math.random() * (maxValue + 1));
-        return message.channel.send(`${message.author} rolled **${roll}** !`);
+        await interaction.reply(`${interaction.user} rolled **${roll}** !`);
     }
 };

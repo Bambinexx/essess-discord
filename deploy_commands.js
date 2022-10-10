@@ -3,8 +3,9 @@ const path = require('node:path');
 const { REST, Routes } = require('discord.js');
 const { clientId, guildId, token } = require('./config.json');
 
-const commands = []
+const commands = [require("./commands/other/roll").data.toJSON()]
 
+/*
 const commandsPath = path.join(__dirname, 'commands');
 const osuCommandsPath = path.join(commandsPath, 'osu')
 const otherCommandsPath =  path.join(commandsPath, 'other')
@@ -27,9 +28,10 @@ for (const [k, val] of Object.entries(commandsFiles)) {
         commands.push(command.data.toJSON)
     }
 }
+*/
 
 const rest = new REST({ version: '10' }).setToken(token);
 
-rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+rest.put(Routes.applicationCommands(clientId), { body: commands })
 	.then(() => console.log('Successfully registered application commands.'))
 	.catch(console.error);

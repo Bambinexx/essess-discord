@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "color-thief-node": "^1.0.4",
-    "discord.js": "^12.5.3",
+    "discord.js": "^14.6.0",
     "mysql": "^2.18.1",
     "node-cron": "^3.0.0",
     "node-osu": "^2.2.1",
