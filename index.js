@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 const cron = require('node-cron');
 
-const { prefix, token, ownerId} = require('./config.json');
+const { prefix, token, ownerId } = require('./config.json');
 const con = require('./lib/mysqlConn');
 const sqlLib = require('./lib/sqlLib');
 const osuApi = require('./lib/osuApi');
@@ -79,7 +79,7 @@ client.on('message', message => {
 
 
 // Cron job
-// */5 * * * * -> 5min
+// */5 * * * * -> 5min              
 
 //------- MAPFEED CRON -------//
 cron.schedule('*/5 * * * *', async () => {

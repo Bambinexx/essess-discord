@@ -47,9 +47,7 @@ module.exports = {
                     await sqlLib.addTrackedUser(user, channels);
                     message.channel.send(`:white_check_mark: **${user.name}** is now tracked here.`);
                 }
-            }
-
-            
+            }            
        }
     }
 }

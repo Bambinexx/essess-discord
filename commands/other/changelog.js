@@ -9,18 +9,13 @@ module.exports = {
     async execute(message, args) {
         let color = await getColorFromURL('https://cdn.discordapp.com/attachments/383631230685544471/817324506019659776/diff-overdose.png');
         let content = `
-        **v2.1.0 Changelog:**
+        **v3 Changelog:**
 
-        **+** \`${prefix}unlink\` command, to unlink and remove your data from Essess database
+        Added support for the slash commands, all commands can now be used using the discord slash commands.
 
-        **v2.0.1 - 2.0.2 Changelog:**
+        Just write /{your_command} now instead of ??{your_command}.
 
-        **▸** Fixed wrong beatmap URLs with the \`${prefix}acc\` command
-
-        **▸** Fixed wrong AR with the \`${prefix}pp\` command
-
-        **▸** Fixed the \`${prefix}osuset\` command, it works fine now
-
+        tl;dr the bot works now
         `;
 
         let embed = new Discord.MessageEmbed()
@@ -69,4 +64,18 @@ module.exports = {
         **▸** Optimized the code, to prepare something else big (soontm) 👀
 
         **->** To avoid useless spam, the \`${prefix}track (username)\` command do not allow players with less than **3000pp** to be tracked
+*/
+
+/*
+        **v2.1.0 Changelog:**
+
+        **+** \`${prefix}unlink\` command, to unlink and remove your data from Essess database
+
+        **v2.0.1 - 2.0.2 Changelog:**
+
+        **▸** Fixed wrong beatmap URLs with the \`${prefix}acc\` command
+
+        **▸** Fixed wrong AR with the \`${prefix}pp\` command
+
+        **▸** Fixed the \`${prefix}osuset\` command, it works fine now
 */
