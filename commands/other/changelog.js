@@ -16,6 +16,8 @@ module.exports = {
         Just write /{your_command} now instead of ??{your_command}.
 
         tl;dr the bot works now
+
+        * Removed support for /envision.
         `;
 
         let embed = new Discord.MessageEmbed()
