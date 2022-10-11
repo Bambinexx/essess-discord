@@ -5,7 +5,6 @@ const { clientId, guildId, token } = require('./config.json');
 
 const commands = []
 
-
 const commandsPath = path.join(__dirname, 'commands_fixed');
 const osuCommandsPath = path.join(commandsPath, 'osu')
 const otherCommandsPath =  path.join(commandsPath, 'other')
@@ -32,5 +31,5 @@ for (const [k, val] of Object.entries(commandsFiles)) {
 const rest = new REST({ version: '10' }).setToken(token);
 
 rest.put(Routes.applicationCommands(clientId), { body: commands })
-	.then(() => console.log('Successfully registered application commands.'))
+	.then(data => console.log(`Successfully registered ${data.length} application commands.`))
 	.catch(console.error);

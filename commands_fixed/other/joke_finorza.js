@@ -1,8 +1,12 @@
+const { SlashCommandBuilder } = require("discord.js")
+
 module.exports = {
-    name: 'joke_finorza',
-    description: '',
-    execute(message, args) {
-       message.channel.send(`
+    data: new SlashCommandBuilder()
+        .setName("finorza")
+        .setDescription("finorza"),
+
+    async execute(interaction) {
+        await interaction.reply(`
         (Hah ah ah ah) (Hah ah ah ah)
         (Hah ah ah ah) (Hah ah ah ah)
 
