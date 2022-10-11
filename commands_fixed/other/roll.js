@@ -12,13 +12,11 @@ module.exports = {
     
     async execute(interaction) {
         let maxValue = 100;
-        let max_number = interaction.options.getInteger("Max number");
+        let maxNumber = interaction.options.getInteger("max");
 
-        if( max_number != undefined && max_number > 0) {
-            maxValue = max_number;
+        if( maxNumber != undefined && maxNumber > 0) {
+            maxValue = maxNumber;
         }
-
-        console.log(maxValue);
 
         let roll = Math.floor(Math.random() * (maxValue + 1));
         await interaction.reply(`${interaction.user} rolled **${roll}** !`);
