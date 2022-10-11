@@ -1,8 +1,12 @@
+const { SlashCommandBuilder } = require("discord.js")
+
 module.exports = {
-    name: 'joke_coolest',
-    description: '',
-    execute(message, args) {
-       message.channel.send(`
+    data: new SlashCommandBuilder()
+        .setName('coolest')
+        .setDescription('meme'),
+
+    async execute(interaction) {
+       await interaction.reply(`
        Oh yeah, yeah ブレるな hey boys あふれ出す 想い 己つらぬけよ
        スペシャルをプレゼント 行こうぜ go! ありのままで
        Break out! 嵐起こせ おもてなす お前連れてく heaven へ
