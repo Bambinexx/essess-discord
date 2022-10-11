@@ -5,34 +5,29 @@ const fs = require('fs');
 const cron = require('node-cron');
 
 const { prefix, token, ownerId } = require('./config.json');
-/*const con = require('./lib/mysqlConn');
-const sqlLib = require('./lib/sqlLib');*/
+const con = require('./lib/mysqlConn');
+const sqlLib = require('./lib/sqlLib');
 const osuApi = require('./lib/osuApi');
 
 client.commands = new Discord.Collection();
 
-/*const commands = {
+const commands = {
     osuCommands: [
-        fs.readdirSync('./commands/osu').filter(file => file.endsWith('.js')),
-        './commands/osu/'
+        fs.readdirSync('./commands_fixed/osu').filter(file => file.endsWith('.js')),
+        './commands_fixed/osu/'
     ],
     otherCommands: [
-        fs.readdirSync('./commands/other').filter(file => file.endsWith('.js')),
-        './commands/other/'
+        fs.readdirSync('./commands_fixed/other').filter(file => file.endsWith('.js')),
+        './commands_fixed/other/'
     ]
 };
 
 for(const [k, val] of Object.entries(commands)) {
     for(let file of val[0]) {
             let command = require(val[1] + file);
-            console.log(val[1] + file);
             client.commands.set(command.data.name, command);
         }
-}*/
-
-
-const command = require("./commands/other/roll")
-client.commands.set(command.data.name, command)
+}
 
     
 client.once('ready', () => {
@@ -44,7 +39,6 @@ client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return
 
     const command = interaction.client.commands.get(interaction.commandName)
-
     
     try {
         await command.execute(interaction)

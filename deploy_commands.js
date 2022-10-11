@@ -3,10 +3,10 @@ const path = require('node:path');
 const { REST, Routes } = require('discord.js');
 const { clientId, guildId, token } = require('./config.json');
 
-const commands = [require("./commands/other/roll").data.toJSON()]
+const commands = []
 
-/*
-const commandsPath = path.join(__dirname, 'commands');
+
+const commandsPath = path.join(__dirname, 'commands_fixed');
 const osuCommandsPath = path.join(commandsPath, 'osu')
 const otherCommandsPath =  path.join(commandsPath, 'other')
 const commandsFiles = {
@@ -24,11 +24,10 @@ const commandsFiles = {
 for (const [k, val] of Object.entries(commandsFiles)) {
     for (const file of val[0]) {
         command = require(val[1] + file)
-        console.log('require work')
-        commands.push(command.data.toJSON)
+        commands.push(command.data.toJSON())
     }
 }
-*/
+
 
 const rest = new REST({ version: '10' }).setToken(token);
 
