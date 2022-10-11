@@ -1,13 +1,13 @@
-const Discord = require('discord.js');
-
-const { prefix } = require('../../config.json');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { getColorFromURL } = require('color-thief-node');
 
 module.exports = {
-    name: 'changelog',
-    description: `\`${prefix}changelog\` - Show Essess's changelog.`,
-    async execute(message, args) {
-        let color = await getColorFromURL('https://cdn.discordapp.com/attachments/383631230685544471/817324506019659776/diff-overdose.png');
+    data: new SlashCommandBuilder()
+        .setName("changelog")
+		.setDescription("Show Essess' changelog"),
+	
+    async execute(interaction) {
+        let color = await getColorFromURL('https://cdn.discordapp.com/attachments/974975971314761759/1029478440790929540/catch-icon-6.50.png');
         let content = `
         **v3 Changelog:**
 
@@ -20,17 +20,20 @@ module.exports = {
         * Removed support for /envision.
         `;
 
-        let embed = new Discord.MessageEmbed()
+        let embed = new EmbedBuilder()
         .setAuthor(
-            `Essess Changelog`,
-            `https://cdn.discordapp.com/attachments/383631230685544471/817324506019659776/diff-overdose.png`,
-            ``
+            { 
+				name: `Essess Changelog`,
+            	iconURL: `https://cdn.discordapp.com/attachments/974975971314761759/1029478440790929540/catch-icon-6.50.png`,
+            }
         )
         .setDescription(content)
         .setColor(color)
-        .setFooter(`Made by Noctalium#1621`);
+        .setFooter({ text: `Made by Noctalium#1621 and bambinexx#5543` });
 
-        return message.channel.send(embed);
+		console.log("embed created successfully ");
+
+        return interaction.reply({ embeds: [embed] });
     }
 };
 
