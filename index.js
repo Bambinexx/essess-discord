@@ -4,7 +4,7 @@ const client = new Discord.Client({ intents: [] });
 const fs = require('fs');
 const cron = require('node-cron');
 
-const { prefix, token, ownerId } = require('./config.json');
+const { token, ownerID } = require('./config.json');
 const con = require('./lib/mysqlConn');
 const sqlLib = require('./lib/sqlLib');
 const osuApi = require('./lib/osuApi');
