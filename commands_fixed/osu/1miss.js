@@ -16,7 +16,6 @@ module.exports = {
         let usernameArg = interaction.options.getString("username")
 
         let username = await sqlLib.getLinkedUser(interaction.user.username);
-        console.log(username);
 
         if(username == null) {
             return interaction.reply(`:x: Please link your osu! profile first with \`/osuset (username)\`.`);
@@ -41,8 +40,6 @@ module.exports = {
             limit = 100)*/
 
         let userBest = await osuApi.v2.user.scores.category(username, "best", { mode: "fruits", limit: 100 });
-
-        console.log(userBest.length);
 
         let oneMissCount = 0;
         for(let i = 0; i < userBest.length; i++) {
