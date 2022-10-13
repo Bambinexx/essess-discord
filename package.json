@@ -13,8 +13,8 @@
     "discord.js": "^14.6.0",
     "mysql": "^2.18.1",
     "node-cron": "^3.0.0",
-    "node-osu": "^2.2.1",
     "nodemon": "^2.0.7",
+    "osu-api-extended": "^2.5.10",
     "request": "^2.88.2",
     "url-exist": "^3.0.0"
   }
