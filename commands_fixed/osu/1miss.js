@@ -34,11 +34,6 @@ module.exports = {
             return interaction.reply(':x: This user do not exist.');
         }
 
-        /*let userBest = await osuApi.v2.user.scores.category(user = username,
-            type = "best",
-            mode = "fruits",
-            limit = 100)*/
-
         let userBest = await osuApi.v2.user.scores.category(username, "best", { mode: "fruits", limit: 100 });
 
         let oneMissCount = 0;
@@ -50,7 +45,7 @@ module.exports = {
         }
 
         if(oneMissCount == 0) {
-            msg = `**${interaction.user.username}** do not have any 1 miss play in his Top PP plays.`
+            msg = `**${interaction.user.username}** doesn't have any 1 miss play in his Top PP plays.`
         } else {
             msg = `**${interaction.user.username}** has **${oneMissCount}x** 1miss play(s) in his Top PP plays.`;
         }

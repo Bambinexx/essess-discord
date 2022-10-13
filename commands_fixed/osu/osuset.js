@@ -24,9 +24,7 @@ module.exports = {
 
         if(user.length == 0) {
             return interaction.reply(':x: This user do not exist.');
-        }
-
-        console.log(user.id);
+        } 
 
         let username = await sqlLib.getLinkedUser(interaction.user.username);
 
